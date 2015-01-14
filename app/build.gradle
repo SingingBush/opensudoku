@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "cz.romario.opensudoku"
+        minSdkVersion 15
+        targetSdkVersion 21
+
+        versionCode 1105
+        versionName "1.1.5"
+    }
+    signingConfigs {
+        release {
+            storeFile file(System.getProperty("user.home") + "\\releasekey.keystore")
+            storePassword ''
+            keyAlias "releasekey"
+            keyPassword ''
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug {
+            minifyEnabled false
+            debuggable = true
+        }
+    }
+}
+
+dependencies {
+    // compile fileTree(dir: 'libs', include: '*.jar')
+    //compile 'com.android.support:support-v4:18.+'
+    //compile 'com.android.support:appcompat-v7:18.+'
+}
+
+import groovy.swing.SwingBuilder
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.hasTask(':app:assembleRelease')) {
+        def storePass = ''
+        def keyPass = ''
+        if (System.console() == null) {
+            new SwingBuilder().edt {
+                dialog(modal: true, title: 'Enter password', alwaysOnTop: true, resizable: false, locationRelativeTo: null, pack: true, show: true) {
+                    vbox { // Put everything below each other
+                        label(text: "Please enter store passphrase:")
+                        def input1 = passwordField()
+                        label(text: "Please enter key passphrase:")
+                        def input2 = passwordField()
+                        button(defaultButton: true, text: 'OK', actionPerformed: {
+                            storePass = input1.password;
+                            keyPass = input2.password;
+                            dispose();
+                        })
+                    }
+                }
+            }
+        } else {
+            storePass = System.console().readPassword("\nPlease enter store passphrase: ")
+            keyPass = System.console().readPassword("\nPlease enter key passphrase: ")
+        }
+
+        if (storePass.size() <= 0 || keyPass.size() <= 0) {
+            throw new InvalidUserDataException("You must enter the passwords to proceed.")
+        }
+
+        storePass = new String(storePass)
+        keyPass = new String(keyPass)
+
+        android.signingConfigs.release.storePassword = storePass
+        android.signingConfigs.release.keyPassword = keyPass
+    }
+}

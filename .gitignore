@@ -1,2 +1,6 @@
 OpenSudoku/bin/
 OpenSudoku/gen/
+
+build/
+gen/
+local.properties

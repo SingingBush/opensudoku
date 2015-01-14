@@ -145,7 +145,7 @@
 	<string name="credits">Autoren:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Lade...</string>
+	<string name="loading">Lade…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Mehr Einstellungen</string>
@@ -159,8 +159,8 @@
 	<string name="export_folder">Export folder</string>
 	<string name="export_all_folders">Export all folders</string>
 	<string name="folders_created">%s Ordner wurden importiert</string>
-	<string name="importing">Importiere Sudoku-Rätsel...</string>
-	<string name="exporting">Exportiere Sudoku-Rätsel...</string>
+	<string name="importing">Importiere Sudoku-Rätsel…</string>
+	<string name="exporting">Exportiere Sudoku-Rätsel…</string>
 	<string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>
 	<string name="highlight_completed_values">Markiere vollständige Zahlen</string>
 	<string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.
@@ -183,5 +183,5 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Generiere neues Sudoku</string>
 	<string name="select_difficulty">Schwierigkeit auswählen</string>
-	<string name="generating">Generiere Sudoku-Rätsel...</string>
+	<string name="generating">Generiere Sudoku-Rätsel…</string>
 </resources>

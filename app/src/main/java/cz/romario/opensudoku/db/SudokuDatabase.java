@@ -174,11 +174,10 @@ public class SudokuDatabase {
 	/**
 	 * Find folder by name. If no folder is found, null is returned.
 	 *
-	 * @param folderName
-	 * @param db
-	 * @return
+	 * @param name Folder name
+	 * @return FolderInfo
 	 */
-	public FolderInfo findFolder(String folderName) {
+	public FolderInfo findFolder(String name) {
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
 		qb.setTables(FOLDER_TABLE_NAME);
@@ -188,15 +187,15 @@ public class SudokuDatabase {
 
 		try {
 			SQLiteDatabase db = mOpenHelper.getReadableDatabase();
-			c = qb.query(db, null, null, new String[]{folderName}, null, null, null);
+			c = qb.query(db, null, null, new String[]{name}, null, null, null);
 
 			if (c.moveToFirst()) {
-				long id = c.getLong(c.getColumnIndex(FolderColumns._ID));
-				String name = c.getString(c.getColumnIndex(FolderColumns.NAME));
+				final long id = c.getLong(c.getColumnIndex(FolderColumns._ID));
+                final String folderName = c.getString(c.getColumnIndex(FolderColumns.NAME));
 
 				FolderInfo folderInfo = new FolderInfo();
 				folderInfo.id = id;
-				folderInfo.name = name;
+				folderInfo.name = folderName;
 
 				return folderInfo;
 			} else {
@@ -212,7 +211,7 @@ public class SudokuDatabase {
 	 *
 	 * @param name    Name of the folder.
 	 * @param created Time of folder creation.
-	 * @return
+	 * @return FolderInfo
 	 */
 	public FolderInfo insertFolder(String name, Long created) {
 		ContentValues values = new ContentValues();
@@ -267,7 +266,7 @@ public class SudokuDatabase {
 	 * Returns list of puzzles in the given folder.
 	 *
 	 * @param folderID Primary key of folder.
-	 * @return
+	 * @return Cursor
 	 */
 	public Cursor getSudokuList(long folderID, SudokuListFilter filter) {
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -296,7 +295,7 @@ public class SudokuDatabase {
 	 * Returns sudoku game object.
 	 *
 	 * @param sudokuID Primary key of folder.
-	 * @return
+	 * @return SudokuGame
 	 */
 	public SudokuGame getSudoku(long sudokuID) {
 		SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -344,8 +343,8 @@ public class SudokuDatabase {
 	 * Inserts new puzzle into the database.
 	 *
 	 * @param folderID Primary key of the folder in which puzzle should be saved.
-	 * @param sudoku
-	 * @return
+	 * @param sudoku SudokuGame
+	 * @return long rowId
 	 */
 	public long insertSudoku(long folderID, SudokuGame sudoku) {
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
@@ -410,7 +409,7 @@ public class SudokuDatabase {
 	 * Returns List of sudokus to export.
 	 *
 	 * @param folderID Id of folder to export, -1 if all folders will be exported.
-	 * @return
+	 * @return Cursor
 	 */
 	public Cursor exportFolder(long folderID) {
 		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note from folder f left outer join sudoku s on f._id = s.folder_id";
@@ -424,8 +423,8 @@ public class SudokuDatabase {
 	/**
 	 * Returns one concrete sudoku to export. Folder context is not exported in this case.
 	 *
-	 * @param sudokuID
-	 * @return
+	 * @param sudokuID id for the game that is to be retrieved
+	 * @return Cursor
 	 */
 	public Cursor exportSudoku(long sudokuID) {
 		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note from sudoku s inner join folder f on s.folder_id = f._id where s._id = ?";
@@ -436,7 +435,7 @@ public class SudokuDatabase {
 	/**
 	 * Updates sudoku game in the database.
 	 *
-	 * @param sudoku
+	 * @param sudoku SudokuGame to be updated
 	 */
 	public void updateSudoku(SudokuGame sudoku) {
 		ContentValues values = new ContentValues();
@@ -454,7 +453,7 @@ public class SudokuDatabase {
 	/**
 	 * Deletes given sudoku from the database.
 	 *
-	 * @param sudokuID
+	 * @param sudokuID id for the game that is to be deleted
 	 */
 	public void deleteSudoku(long sudokuID) {
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();

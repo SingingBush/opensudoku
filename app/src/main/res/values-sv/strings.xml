@@ -153,7 +153,7 @@
 	<string name="credits">Utvecklare:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Laddar...</string>
+	<string name="loading">Laddar…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Fler inställningar</string>
@@ -168,8 +168,8 @@
 	<string name="export_folder">Exportera mapp</string>
 	<string name="export_all_folders">Exportera alla mappar</string>
 	<string name="folders_created">%s mappar har importerats.</string>
-	<string name="importing">Importerar pussel...</string>
-	<string name="exporting">Exporterar pussel...</string>
+	<string name="importing">Importerar pussel…</string>
+	<string name="exporting">Exporterar pussel…</string>
 	<string name="unknown_export_error">Okänt fel uppstod vid pusselexport.</string>
 	<string name="highlight_completed_values">Markera färdiga nummer</string>
 	<string name="highlight_completed_values_summary">Markera de nummer som använts 9 gånger.</string>
@@ -191,6 +191,6 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Generiere neues Sudoku</string>
 	<string name="select_difficulty">Schwierigkeit auswählen</string>
-	<string name="generating">Generiere Sudoku-Rätsel...</string>
+	<string name="generating">Generiere Sudoku-Rätsel…</string>
 
 </resources>

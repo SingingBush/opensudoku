@@ -156,7 +156,7 @@
 	</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Caricamento...</string>
+	<string name="loading">Caricamento…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Altre impostazioni</string>
@@ -170,8 +170,8 @@
 	<string name="export_folder">Esporta cartella</string>
 	<string name="export_all_folders">Esporta tutte le cartelle</string>
 	<string name="folders_created">%s cartelle importate.</string>
-	<string name="importing">Importazione rompicapi...</string>
-	<string name="exporting">Esportazione rompicapi...</string>
+	<string name="importing">Importazione rompicapi…</string>
+	<string name="exporting">Esportazione rompicapi…</string>
 	<string name="unknown_export_error">Errore sconosciuto durante esportazione rompicapi.</string>
 	<string name="highlight_completed_values">Evidenzia numeri completati</string>
 	<string name="highlight_completed_values_summary">Evidenzia tasti per numeri che sono stati inseriti 9 volte.
@@ -194,5 +194,5 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Genera nuovo gioco</string>
 	<string name="select_difficulty">Seleziona difficoltà</string>
-	<string name="generating">Generazione rompicapo...</string>
+	<string name="generating">Generazione rompicapo…</string>
 </resources>

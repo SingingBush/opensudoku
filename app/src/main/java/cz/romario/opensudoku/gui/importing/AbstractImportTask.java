@@ -20,7 +20,7 @@ import cz.romario.opensudoku.utils.Const;
  * in constructor of your class.
  * 2) In {@link #processImport()} method process your data source (parse file or maybe download
  * data from some other source) and save puzzles by calling
- * {@link #importFolder(String, boolean)} and {@link #importGame(String)} methods. Note
+ * {@link #importFolder(String)} and {@link #importGame(String)} methods. Note
  * that <code>importFolder</code> must be called first, otherwise <code>importGame</code>
  * doesn't know where to put puzzles.
  * 3) Add code to {@link ImportSudokuActivity} which creates instance of your new class and
@@ -30,8 +30,8 @@ import cz.romario.opensudoku.utils.Const;
  *
  * @author romario
  */
-public abstract class AbstractImportTask extends
-		AsyncTask<Void, Integer, Boolean> {
+public abstract class AbstractImportTask extends AsyncTask<Void, Integer, Boolean> {
+
 	static final int NUM_OF_PROGRESS_UPDATES = 20;
 
 	protected Context mContext;
@@ -147,7 +147,7 @@ public abstract class AbstractImportTask extends
 	/**
 	 * Creates new folder and starts appending puzzles to this folder.
 	 *
-	 * @param name
+	 * @param name folder name
 	 */
 	protected void importFolder(String name) {
 		importFolder(name, System.currentTimeMillis());
@@ -157,8 +157,8 @@ public abstract class AbstractImportTask extends
 	/**
 	 * Creates new folder and starts appending puzzles to this folder.
 	 *
-	 * @param name
-	 * @param created
+	 * @param name folder name
+	 * @param created Time of folder creation.
 	 */
 	protected void importFolder(String name, long created) {
 		if (mDatabase == null) {
@@ -174,7 +174,7 @@ public abstract class AbstractImportTask extends
 	 * Starts appending puzzles to the folder with given <code>name</code>. If such folder does
 	 * not exist, this method creates new one.
 	 *
-	 * @param name
+	 * @param name folder name
 	 */
 	protected void appendToFolder(String name) {
 		if (mDatabase == null) {
@@ -194,9 +194,9 @@ public abstract class AbstractImportTask extends
 
 	/**
 	 * Imports game. Game will be stored in folder, which was set by
-	 * {@link #importFolder(String, boolean)} or {@link #appendToFolder(String)}.
+	 * {@link #importFolder(String)} or {@link #appendToFolder(String)}.
 	 *
-	 * @param game
+	 * @param data Game data
 	 * @throws SudokuInvalidFormatException
 	 */
 	protected void importGame(String data) throws SudokuInvalidFormatException {
@@ -208,15 +208,15 @@ public abstract class AbstractImportTask extends
 	/**
 	 * Imports game with all its fields.
 	 *
-	 * @param game Fields to import (state of game, created, etc.)
-	 * @param data Data to import.
+	 * @param params Fields to import (state of game, created, data, etc.)
+     * @throws SudokuInvalidFormatException
 	 */
-	protected void importGame(SudokuImportParams pars) throws SudokuInvalidFormatException {
+	protected void importGame(SudokuImportParams params) throws SudokuInvalidFormatException {
 		if (mDatabase == null) {
 			throw new IllegalStateException("Database is not opened.");
 		}
 
-		mDatabase.importSudoku(mFolder.id, pars);
+		mDatabase.importSudoku(mFolder.id, params);
 	}
 
 	protected void setError(String error) {

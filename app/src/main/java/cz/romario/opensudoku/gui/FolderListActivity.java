@@ -71,6 +71,7 @@ public class FolderListActivity extends ListActivity {
 	private static final int DIALOG_DELETE_FOLDER = 3;
 
 	private static final String TAG = "FolderListActivity";
+	private static final String MORE_PUZZLES_URL = "http://code.google.com/p/opensudoku-android/wiki/Puzzles";
 
 	private Cursor mCursor;
 	private SudokuDatabase mDatabase;
@@ -96,7 +97,7 @@ public class FolderListActivity extends ListActivity {
 		getMorePuzzles.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/opensudoku-android/wiki/Puzzles"));
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MORE_PUZZLES_URL));
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);
 			}

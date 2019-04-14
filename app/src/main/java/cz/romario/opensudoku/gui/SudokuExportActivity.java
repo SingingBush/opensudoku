@@ -112,13 +112,13 @@ public class SudokuExportActivity extends Activity {
 				return new AlertDialog.Builder(this)
 						.setTitle(R.string.export)
 						.setMessage(R.string.file_exists)
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								startExportToFileTask();
 							}
 						})
-						.setNegativeButton(android.R.string.no, null)
+						.setNegativeButton(R.string.no, null)
 						.create();
 			case DIALOG_PROGRESS:
 				ProgressDialog progressDialog = new ProgressDialog(this);

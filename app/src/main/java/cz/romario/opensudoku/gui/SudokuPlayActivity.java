@@ -267,28 +267,28 @@ public class SudokuPlayActivity extends Activity {
 
 		menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
 				.setShortcut('1', 'u')
-				.setIcon(android.R.drawable.ic_menu_revert);
+				.setIcon(R.drawable.ic_menu_revert);
 
 		menu.add(0, MENU_ITEM_RESTART, 1, R.string.restart)
 				.setShortcut('7', 'r')
-				.setIcon(android.R.drawable.ic_menu_rotate);
+				.setIcon(R.drawable.ic_menu_rotate);
 
 		menu.add(0, MENU_ITEM_CLEAR_ALL_NOTES, 0, R.string.clear_all_notes)
 				.setShortcut('3', 'a')
-				.setIcon(android.R.drawable.ic_menu_delete);
+				.setIcon(R.drawable.ic_menu_delete);
 
 		if (mFillInNotesEnabled) {
 			menu.add(0, MENU_ITEM_FILL_IN_NOTES, 0, R.string.fill_in_notes)
-					.setIcon(android.R.drawable.ic_menu_edit);
+					.setIcon(R.drawable.ic_menu_edit);
 		}
 
 		menu.add(0, MENU_ITEM_HELP, 1, R.string.help)
 				.setShortcut('0', 'h')
-				.setIcon(android.R.drawable.ic_menu_help);
+				.setIcon(R.drawable.ic_menu_help);
 
 		menu.add(0, MENU_ITEM_SETTINGS, 1, R.string.settings)
 				.setShortcut('9', 's')
-				.setIcon(android.R.drawable.ic_menu_preferences);
+				.setIcon(R.drawable.ic_menu_preferences);
 
 		menu.add(0, MENU_ITEM_SET_CHECKPOINT, 2, R.string.set_checkpoint);
 		menu.add(0, MENU_ITEM_UNDO_TO_CHECKPOINT, 2, R.string.undo_to_checkpoint);
@@ -384,17 +384,17 @@ public class SudokuPlayActivity extends Activity {
 		switch (id) {
 			case DIALOG_WELL_DONE:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_dialog_info)
+						.setIcon(R.drawable.ic_dialog_info)
 						.setTitle(R.string.well_done)
 						.setMessage(getString(R.string.congrats, mGameTimeFormatter.format(mSudokuGame.getTime())))
-						.setPositiveButton(android.R.string.ok, null)
+						.setPositiveButton(R.string.ok, null)
 						.create();
 			case DIALOG_RESTART:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_rotate)
+						.setIcon(R.drawable.ic_menu_rotate)
 						.setTitle(R.string.app_name)
 						.setMessage(R.string.restart_confirm)
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								// Restart game
 								mSudokuGame.reset();
@@ -405,31 +405,31 @@ public class SudokuPlayActivity extends Activity {
 								}
 							}
 						})
-						.setNegativeButton(android.R.string.no, null)
+						.setNegativeButton(R.string.no, null)
 						.create();
 			case DIALOG_CLEAR_NOTES:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_delete)
+						.setIcon(R.drawable.ic_menu_delete)
 						.setTitle(R.string.app_name)
 						.setMessage(R.string.clear_all_notes_confirm)
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								mSudokuGame.clearAllNotes();
 							}
 						})
-						.setNegativeButton(android.R.string.no, null)
+						.setNegativeButton(R.string.no, null)
 						.create();
 			case DIALOG_UNDO_TO_CHECKPOINT:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_delete)
+						.setIcon(R.drawable.ic_menu_delete)
 						.setTitle(R.string.app_name)
 						.setMessage(R.string.undo_to_checkpoint_confirm)
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								mSudokuGame.undoToCheckpoint();
 							}
 						})
-						.setNegativeButton(android.R.string.no, null)
+						.setNegativeButton(R.string.no, null)
 						.create();
 
 		}

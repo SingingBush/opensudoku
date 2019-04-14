@@ -70,7 +70,7 @@ public class IMPopupDialog extends Dialog {
 		mTabHost = createTabView();
 
 		// hide dialog's title
-		TextView title = (TextView) findViewById(android.R.id.title);
+		TextView title = (TextView) findViewById(R.id.title);
 		title.setVisibility(View.GONE);
 
 		setContentView(mTabHost);
@@ -121,10 +121,10 @@ public class IMPopupDialog extends Dialog {
 		for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
 			Button b = entry.getValue();
 			if (entry.getKey().equals(mSelectedNumber)) {
-				b.setTextAppearance(mContext, android.R.style.TextAppearance_Large_Inverse);
+				b.setTextAppearance(mContext, R.style.TextAppearance_Large_Inverse);
 				b.getBackground().setColorFilter(selBkgColorFilter);
 			} else {
-				b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
+				b.setTextAppearance(mContext, R.style.TextAppearance_Widget_Button);
 				b.getBackground().setColorFilter(null);
 			}
 		}
@@ -196,10 +196,10 @@ public class IMPopupDialog extends Dialog {
 		linearLayout.setOrientation(LinearLayout.VERTICAL);
 
 		TabWidget tabWidget = new TabWidget(mContext);
-		tabWidget.setId(android.R.id.tabs);
+		tabWidget.setId(R.id.tabs);
 
 		FrameLayout frameLayout = new FrameLayout(mContext);
-		frameLayout.setId(android.R.id.tabcontent);
+		frameLayout.setId(R.id.tabcontent);
 
 		linearLayout.addView(tabWidget);
 		linearLayout.addView(frameLayout);

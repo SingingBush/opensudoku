@@ -1,16 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "cz.romario.opensudoku"
-        minSdkVersion 8
-        targetSdkVersion 21
+        minSdkVersion 21
+        targetSdkVersion 28
 
-        versionCode 1105
-        versionName "1.1.5"
+        versionCode 1106
+        versionName "1.1.6"
     }
     lintOptions {
         abortOnError false

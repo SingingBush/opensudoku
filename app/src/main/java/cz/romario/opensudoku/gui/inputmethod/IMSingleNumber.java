@@ -188,12 +188,12 @@ public class IMSingleNumber extends InputMethod {
 				for (Button b : mNumberButtons.values()) {
 					b.setBackgroundResource(R.drawable.btn_default_bg);
 					if (b.getTag().equals(mSelectedNumber)) {
-						b.setTextAppearance(mContext, android.R.style.TextAppearance_Large_Inverse);
+						b.setTextAppearance(mContext, R.style.TextAppearance_Large_Inverse);
 						LightingColorFilter selBkgColorFilter = new LightingColorFilter(
 								mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
 						b.getBackground().setColorFilter(selBkgColorFilter);
 					} else {
-						b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
+						b.setTextAppearance(mContext, R.style.TextAppearance_Widget_Button);
 						b.getBackground().setColorFilter(null);
 					}
 				}

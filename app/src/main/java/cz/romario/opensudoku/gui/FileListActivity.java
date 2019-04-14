@@ -158,7 +158,7 @@ public class FileListActivity extends ListActivity {
 		switch (id) {
 			case DIALOG_IMPORT_FILE:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_upload)
+						.setIcon(R.drawable.ic_menu_upload)
 						.setTitle(R.string.import_file)
 						.setPositiveButton(R.string.import_file, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
@@ -171,7 +171,7 @@ public class FileListActivity extends ListActivity {
 								//finish();
 							}
 						})
-						.setNegativeButton(android.R.string.cancel, null)
+						.setNegativeButton(R.string.cancel, null)
 						.create();
 		}
 
